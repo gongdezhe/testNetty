@@ -55,6 +55,9 @@ public class Client {
                     System.out.println("我下线了");
                     return;
                 }
+                if (" ".equals(readLine)) {
+                    continue;
+                }
                 channel.writeAndFlush(readLine + "\r\n");
             }
 

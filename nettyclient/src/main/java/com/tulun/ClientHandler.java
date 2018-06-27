@@ -22,9 +22,17 @@ public class ClientHandler extends SimpleChannelInboundHandler<String> {
             String[] split = s.trim().split("%%d");
             if ("".equals(split[0])) {
                 if (split[1].trim().equals("me")) {
-                    System.out.println("[我] "+ split[2]);
+                    if (split.length == 2) {
+                        System.out.println("[我] ");
+                    } else {
+                        System.out.println("[我] "+ split[2]);
+                    }
                 } else if (split[1].trim().equals("ip")){
-                    System.out.println("["+ split[2].replace("/", "")+" ]" + split[3]);
+                    if (split.length == 3) {
+                        System.out.println("["+ split[2].replace("/", "")+"] ");
+                    } else {
+                        System.out.println("["+ split[2].replace("/", "")+"] " + split[3]);
+                    }
                 } else {
                     System.out.println(split[1]);
                 }
